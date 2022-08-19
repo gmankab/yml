@@ -2,6 +2,19 @@
 
 some useful shortcuts for pyyaml
 
+## installation
+
+```bash
+pip install gmanka_yml
+```
+
+## functions
+
+- [to_str](#to_str)  
+- [save_file](#save_file)  
+- [read_file](#read_file)  
+- [read_str](#read_str)  
+
 ```py
 import gmanka_yml as yml
 
@@ -15,7 +28,7 @@ my_dict = {
 }
 ```
 
-## to_str
+## to_str[^](#functions)
 
 converting any data to yml string and returning it
 
@@ -33,7 +46,7 @@ element_1: 1
 - list_element_2
 ```
 
-## save_file
+## save_file[^](#functions)
 
 same as [to_str](#to_str), but writing data to file instead of returning
 
