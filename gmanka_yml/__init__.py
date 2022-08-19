@@ -2,6 +2,9 @@ from pathlib import Path
 import yaml
 
 
+version = '22.0.1'
+
+
 def to_str(
     data: any,
 ) -> str:
