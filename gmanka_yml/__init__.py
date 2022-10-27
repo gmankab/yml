@@ -8,10 +8,17 @@ version = '22.0.1'
 def to_str(
     data: any,
 ) -> str:
-    return yaml.dump(
-        data,
-        Dumper = yaml.CDumper,
-    )
+    try:
+        return yaml.dump(
+            data,
+            Dumper = yaml.CDumper,
+        )
+    except AttributeError:
+        return yaml.dump(
+            data,
+            Dumper = yaml.Dumper,
+        )
+
 
 
 def to_file(
@@ -32,10 +39,16 @@ def to_file(
 def read_str(
     data: str,
 ) -> any:
-    return yaml.load(
-        data,
-        Loader = yaml.CLoader,
-    )
+    try:
+        return yaml.load(
+            data,
+            Loader = yaml.CLoader,
+        )
+    except AttributeError:
+        return yaml.load(
+            data,
+            Loader = yaml.Loader,
+        )
 
 
 def read_file(
