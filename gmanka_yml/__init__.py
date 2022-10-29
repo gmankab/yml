@@ -25,6 +25,10 @@ def to_file(
     data: any,
     file_path: str | Path,
 ) -> None:
+    Path(file_path).parent.mkdir(
+        exist_ok = True,
+        parents = True,
+    )
     with open(
         file_path,
         'w'

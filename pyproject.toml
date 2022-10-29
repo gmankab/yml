@@ -7,7 +7,7 @@ dependencies = [
   "pyyaml",
 ]
 name = "gmanka_yml"
-version = "22.0.2"
+version = "22.0.4"
 authors = [
   { name="gmanka", email="gmankab@gmail.com" },
 ]
