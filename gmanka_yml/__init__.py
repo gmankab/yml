@@ -11,11 +11,13 @@ def to_str(
     try:
         return yaml.dump(
             data,
+            allow_unicode = True,
             Dumper = yaml.CDumper,
         )
     except AttributeError:
         return yaml.dump(
             data,
+            allow_unicode = True,
             Dumper = yaml.Dumper,
         )
 
