@@ -1,12 +1,13 @@
+from io import TextIOWrapper
 from pathlib import Path
 import yaml
 
 
-version = '22.0.1'
+version = '23.0.0'
 
 
 def to_str(
-    data: any,
+    data,
 ) -> str:
     try:
         return yaml.dump(
@@ -24,15 +25,15 @@ def to_str(
 
 
 def to_file(
-    data: any,
-    file_path: str | Path,
+    data,
+    path: str | Path,
 ) -> None:
-    Path(file_path).parent.mkdir(
+    Path(path).parent.mkdir(
         exist_ok = True,
         parents = True,
     )
     with open(
-        file_path,
+        path,
         'w'
     ) as file:
         file.write(
@@ -43,8 +44,8 @@ def to_file(
 
 
 def read_str(
-    data: str,
-) -> any:
+    data: str | TextIOWrapper,
+):
     try:
         return yaml.load(
             data,
@@ -58,12 +59,13 @@ def read_str(
 
 
 def read_file(
-    file_path: str | Path
+    path: str | Path
 ):
     with open(
-        file_path,
+        path,
         'r',
     ) as file:
         return read_str(
             file
         )
+
