@@ -3,7 +3,7 @@ from pathlib import Path
 import yaml
 
 
-version = '23.0.1'
+version = '23.0.4'
 _sential = object()
 
 

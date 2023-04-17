@@ -1,5 +1,9 @@
 # changelog
 
+## 23.0.4
+
+- fixed typo in version
+
 ## 23.0.3
 
 - fixed reading
