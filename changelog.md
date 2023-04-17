@@ -1,8 +1,12 @@
 # changelog
 
-## 23.0.0
+## 23.0.2
 
-- added ability to set default value
+- added ability to pass expected type
+
+## 23.0.1
+
+- added ability to pass default value
 
 ## 23.0.0
 

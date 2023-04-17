@@ -99,3 +99,18 @@ yml.read_str(1) # raises TypeError
 yml.read_str(1, default = None) # returns None
 ```
 
+## expected_type
+
+```py
+yml.read_str(
+    data = '{}',
+    expected_type = list,
+) # raises TypeError
+
+yml.read_str(
+    data = '{}',
+    default = None,
+    expected_type = list,
+) # returns None
+```
+
