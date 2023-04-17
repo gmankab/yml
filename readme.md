@@ -12,8 +12,8 @@ pip install gmanka_yml
 
 - [to_str](#to_str)  
 - [to_file](#to_file)  
-- [read_str](#read_str)  
-- [read_file](#read_file)  
+- [from_str](#read_str)  
+- [from_file](#read_file)  
 
 ## to_str[^](#functions)
 
@@ -55,7 +55,7 @@ yml.to_file(
 )
 ```
 
-## read_str[^](#functions)
+## from_str[^](#functions)
 
 ```py
 import gmanka_yml as yml
@@ -68,7 +68,7 @@ element_1: 1
 - list_element_2
 '''
 
-my_dict = yml.read_str(my_str)
+my_dict = yml.from_str(my_str)
 
 print(my_dict)
 
@@ -83,31 +83,31 @@ output:
 <class 'dict'>
 ```
 
-## read_file[^](#functions)
+## from_file[^](#functions)
 
-same as [read_str](#read_str), but reads data from file
+same as [from_str](#read_str), but reads data from file
 
 ```py
-yml.read_file('file.yml')
+yml.from_file('file.yml')
 ```
 
 ## default values
 
 ```py
-yml.read_str(1) # raises TypeError
+yml.from_str(1) # raises TypeError
 
-yml.read_str(1, default = None) # returns None
+yml.from_str(1, default = None) # returns None
 ```
 
 ## expected_type
 
 ```py
-yml.read_str(
+yml.from_str(
     data = '{}',
     expected_type = list,
 ) # raises TypeError
 
-yml.read_str(
+yml.from_str(
     data = '{}',
     default = None,
     expected_type = list,

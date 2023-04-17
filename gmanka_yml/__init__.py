@@ -40,24 +40,18 @@ def to_file(
         file.write(
             to_str(
                 data,
-            )
+            ),
         )
 
 
-def read_str(
+def from_str(
     data: str | TextIOWrapper,
     default = _sential,
     expected_type = None,
 ):
     try:
-        loaded = yaml.load(
-            data,
-            Loader = yaml.CLoader,
-        )
-    except AttributeError:
-        return yaml.load(
-            data,
-            Loader = yaml.Loader,
+        parsed = yaml.safe_load(
+            stream = data,
         )
     except Exception as error:
         if default == _sential:
@@ -65,12 +59,12 @@ def read_str(
         else:
             return default
     if expected_type == None:
-        return data
+        return parsed
     elif isinstance(
-        data,
+        parsed,
         expected_type,
     ):
-        return data
+        return parsed
     elif default == _sential:
         raise TypeError(
             f'{expected_type} expected, but got type(data)'
@@ -79,7 +73,7 @@ def read_str(
         return default
 
 
-def read_file(
+def from_file(
     path: str | Path,
     default = _sential,
     expected_type = None,
@@ -88,12 +82,11 @@ def read_file(
         with open(
             file = path,
             mode = 'r',
-            encoding = 'utf-8',
         ) as file:
-            return read_str(
-                file,
-                default = default,
-                expected_type = expected_type,
+            return from_str( 
+                data = file, 
+                default = default, 
+                expected_type = expected_type, 
             )
     except Exception as error:
         if default == _sential:
