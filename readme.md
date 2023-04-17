@@ -51,7 +51,7 @@ same as [to_str](#to_str), but writes data to file instead of returning
 ```py
 yml.to_file(
     data = my_dict,
-    file_path = 'file.yml',
+    path = 'file.yml',
 )
 ```
 
@@ -88,5 +88,14 @@ output:
 same as [read_str](#read_str), but reads data from file
 
 ```py
-print(yml.read_file('file.yml'))
+yml.read_file('file.yml')
 ```
+
+## default values
+
+```py
+yml.read_str(1) # raises TypeError
+
+yml.read_str(1, default = None) # returns None
+```
+

@@ -3,7 +3,8 @@ from pathlib import Path
 import yaml
 
 
-version = '23.0.0'
+version = '23.0.1'
+_sential = object()
 
 
 def to_str(
@@ -23,7 +24,6 @@ def to_str(
         )
 
 
-
 def to_file(
     data,
     path: str | Path,
@@ -33,8 +33,9 @@ def to_file(
         parents = True,
     )
     with open(
-        path,
-        'w'
+        file = path,
+        mode = 'w',
+        encoding = 'utf-8',
     ) as file:
         file.write(
             to_str(
@@ -45,6 +46,7 @@ def to_file(
 
 def read_str(
     data: str | TextIOWrapper,
+    default = _sential,
 ):
     try:
         return yaml.load(
@@ -56,16 +58,29 @@ def read_str(
             data,
             Loader = yaml.Loader,
         )
+    except Exception as error:
+        if default == _sential:
+            raise error
+        else:
+            return default
 
 
 def read_file(
-    path: str | Path
+    path: str | Path,
+    default = _sential,
 ):
-    with open(
-        path,
-        'r',
-    ) as file:
-        return read_str(
-            file
-        )
+    try:
+        with open(
+            file = path,
+            mode = 'r',
+            encoding = 'utf-8',
+        ) as file:
+            return read_str(
+                file
+            )
+    except Exception as error:
+        if default == _sential:
+            raise error
+        else:
+            return default
 
