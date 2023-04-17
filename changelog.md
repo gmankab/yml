@@ -1,5 +1,9 @@
 # changelog
 
+## 23.0.5
+
+- fixed types, updated docs
+
 ## 23.0.4
 
 - fixed typo in version

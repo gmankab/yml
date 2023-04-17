@@ -8,12 +8,15 @@ some useful shortcuts for pyyaml
 pip install gmanka_yml
 ```
 
-## functions
+## navigation
 
 - [to_str](#to_str)  
 - [to_file](#to_file)  
 - [from_str](#read_str)  
 - [from_file](#read_file)  
+- [default](#default)
+- [expected_type](#expected_type)
+- [changelog](changelog)
 
 ## to_str[^](#functions)
 
@@ -91,7 +94,7 @@ same as [from_str](#read_str), but reads data from file
 yml.from_file('file.yml')
 ```
 
-## default values
+## default
 
 ```py
 yml.from_str(1) # raises TypeError
@@ -99,7 +102,7 @@ yml.from_str(1) # raises TypeError
 yml.from_str(1, default = None) # returns None
 ```
 
-## expected_type
+## expected type
 
 ```py
 yml.from_str(

@@ -1,5 +1,6 @@
 from io import TextIOWrapper
 from pathlib import Path
+from typing import Any
 import yaml
 
 
@@ -48,7 +49,7 @@ def from_str(
     data: str | TextIOWrapper,
     default = _sential,
     expected_type = None,
-):
+) -> Any:
     try:
         parsed = yaml.safe_load(
             stream = data,
@@ -77,7 +78,7 @@ def from_file(
     path: str | Path,
     default = _sential,
     expected_type = None,
-):
+) -> Any:
     try:
         with open(
             file = path,
